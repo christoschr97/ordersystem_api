@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
+const iotsRoutes = require('./api/routes/iots');
 
 mongoose.connect("mongodb://localhost:27017/tmpdb", { useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 // routes which will handle requests
 app.use('/products', productRoutes);
 app.use('/orders', ordersRoutes);
+app.use('/iots', iotsRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not Found')
